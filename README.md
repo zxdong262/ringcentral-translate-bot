@@ -8,6 +8,14 @@ Translate bot for RingCentral Glip
 ## Prerequisites$
 
 - Python3.6+ and Pip3
+- Get an AWS account, create `aws_access_key_id` and `aws_secret_access_key` and place them in `~/.aws/credentials`, like this:
+
+```bash
+[default]
+aws_access_key_id = <your aws_access_key_id>
+aws_secret_access_key = <your aws_secret_access_key>
+```
+
 - Create the bot App: Login to [developer.ringcentral.com](https://developer.ringcentral.com) and create an `public` `Server/Bot` app with permissions: `ReadContacts, ReadMessages, ReadPresence, Contacts, ReadAccounts, SMS, InternalMessages, ReadCallLog, ReadCallRecording, WebhookSubscriptions, Glip`
 
 ## Development & Quick start
