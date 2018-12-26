@@ -22,6 +22,7 @@ provider:
   iamManagedPolicies:
     - 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'
     - 'arn:aws:iam::aws:policy/AWSLambdaExecute'
+    - 'arn:aws:iam::aws:policy/TranslateFullAccess'
 
 # you can overwrite defaults here
 #  stage: dev
