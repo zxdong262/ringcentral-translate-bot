@@ -170,12 +170,12 @@ def botGotPostAddAction(
     return sendMsg(langErr)
 
   # translate with target language
-  m = re.match(r'[^ ]+ ([\w-]+)?>([\w-]+) (.+)', text)
+  m = re.match(r'[^ ]+ ([\w-]+)?>([\w-]+) (.+)', text, re.DOTALL|re.MULTILINE)
   src = None
   tar = ''
   txt = ''
   if m is None:
-    m3 = re.match(r'[^ ]+ +(.+)', text)
+    m3 = re.match(r'[^ ]+ +(.+)', text, re.DOTALL|re.MULTILINE)
     txt = m3.group(1)
     tar = defaultLangCode
   else:
@@ -186,7 +186,7 @@ def botGotPostAddAction(
   if (not src is None and not src in langKeys) or not tar in langKeys:
     sendMsg(langErr)
     return
-
+  print(txt, '-------')
   try:
     translate = boto3.client(
       service_name='translate',
