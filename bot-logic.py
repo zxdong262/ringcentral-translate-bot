@@ -187,30 +187,32 @@ def botGotPostAddAction(
     sendMsg(langErr)
     return
 
-  translate = boto3.client(
-    service_name='translate',
-    region_name=region,
-    use_ssl=True
-  )
-  result = translate.translate_text(
-    Text=txt,
-    SourceLanguageCode=src or 'auto',
-    TargetLanguageCode=tar
-  )
-  trans = result.get('TranslatedText') or ''
-  transCodeSrc = result.get('SourceLanguageCode') or 'unknown'
-  transCodeTar = result.get('TargetLanguageCode') or 'unknown'
+  try:
+    translate = boto3.client(
+      service_name='translate',
+      region_name=region,
+      use_ssl=True
+    )
+    result = translate.translate_text(
+      Text=txt,
+      SourceLanguageCode=src or 'auto',
+      TargetLanguageCode=tar
+    )
+    trans = result.get('TranslatedText') or ''
+    transCodeSrc = result.get('SourceLanguageCode') or 'unknown'
+    transCodeTar = result.get('TargetLanguageCode') or 'unknown'
 
-  final = f'''![:Person]({creatorId}) says:
+    final = f'''![:Person]({creatorId}) says:
 **{trans}**
 
 **{transCodeSrc}: {langCodes[transCodeSrc]}** > **{transCodeTar}: {langCodes[transCodeTar]}**
-> {txt}
-  '''
+> {txt}'''
 
-  print('TranslatedText: ' + trans)
-  print('SourceLanguageCode: ' + transCodeSrc)
-  print('TargetLanguageCode: ' + transCodeTar)
+    print('TranslatedText: ' + trans)
+    print('SourceLanguageCode: ' + transCodeSrc)
+    print('TargetLanguageCode: ' + transCodeTar)
 
-  sendMsg(final)
+    sendMsg(final)
+  except:
+    sendMsg('Translate fails :thinking:')
 
