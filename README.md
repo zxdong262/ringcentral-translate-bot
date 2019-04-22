@@ -4,6 +4,8 @@
 Translate bot for RingCentral Glip
 
 ![ ](screenshots/ss.png)
+![ ](screenshots/ss1.png)
+![ ](screenshots/ss2.png)
 
 ## Prerequisites$
 
