@@ -71,7 +71,7 @@ Or auto translate to **default language: {defaultLang}**
 
 You can also set default language by post **![:Person]({botId}) set [langCode]**
 
-You can read about supported language code from [aws translate document](https://docs.aws.amazon.com/translate/latest/dg/API_TranslateText.html) or post "**![:Person]({botId}) langs**"
+You can read about supported language code from [aws translate document](https://docs.aws.amazon.com/translate/latest/dg/API_TranslateText.html) or post **"![:Person]({botId}) langs"**
 
   '''
 
